@@ -13,6 +13,7 @@ def run():
                 print("help - Show this menu")
                 print("divideBySubnets - Divide a network by number of subnets")
                 print("divideByHosts  - Divide a network by number of hosts")
+                print("exit - Exit the service")
 
             case "divideBySubnets":
                 address = service.get_ip_address()
@@ -75,10 +76,13 @@ def run():
                     for hosts, subnet in result:
                         print()
                         print(f"{hosts} hosts -> subnet {i}:")
-                        print(service.print_info(subnet))
+                        service.print_info(subnet)
                         i += 1
 
                 except ValueError as e:
                     print("errororoorrorrr")
+            case "exit":
+                print("Goodbye!")
+                exit(0)
 
 run()
