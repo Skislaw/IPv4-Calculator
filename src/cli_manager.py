@@ -80,9 +80,16 @@ def run():
                         i += 1
 
                 except ValueError as e:
-                    print("errororoorrorrr")
+                    print("error")
+                    
+            case "showInfo":
+                address = service.get_ip_address()
+                mask = service.get_subnet_mask()
+                network = service.create_network(address, mask)
+                service.print_info(network)
+
             case "exit":
-                print("Goodbye!")
+                print("Leaving service...")
                 exit(0)
 
 run()
