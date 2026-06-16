@@ -30,12 +30,18 @@ def create_network(ip_address, subnet_mask):
 
 
 def print_info(network):
+    if network.is_private:
+        private = "Yes"
+    else:
+        private = "No"
+
     print (f"Network address: {network}")
     print(f"Default gateway: {network.network_address + 1}")
     print(f"Broadcast address: {network.broadcast_address}")
     print(f"Number of useful hosts: {network.num_addresses - 3} ")
     print(f"First useful host: {network.network_address + 2}")
     print(f"Last useful host: {network.broadcast_address - 1}")
+    print(f"Private: {private}")
 
 def divide_network(network, subnets):
     network = ipaddress.IPv4Network(network)
